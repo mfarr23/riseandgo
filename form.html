@@ -1,0 +1,81 @@
+  
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rise and Input</title>
+</head>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+
+
+
+
+
+<body>
+
+<div class="container">
+  <div class="row">
+    <p class=“grey-text text-lighten-4”>  <div class=“row”>
+    <form class="col s12">
+      <div class="row">
+
+      <H2>Preferences</H2>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="HomeAddress" type="text" class="validate">
+          <label class="active" for="home_address">Home Address</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="workAddress" type="text" class="validate">
+          <label class="active" for="work_address">Work Address</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="MorningRoutine" type="number" class="validate">
+          <label class="active" for="time_ready">How many minutes does it take you to get ready in the morning?</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="timepicker" class="timepicker" type="time">
+          <label class="active" for="arrive_work">Time I wish to Arrive at Work</label>
+        </div>
+      </div>
+      <button id="submit" class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+
+    </div>
+  </div>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<!-- Compiled and minified JavaScript -->
+<!-- <script src=“https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js”></script> -->
+  <!-- Jquery -->
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.js"></script> -->
+<!-- <script src="material-datetime-picker.js" charset="utf-8"></script> -->
+
+ <script src="form.js"></script>
+
+</body>
+</html>

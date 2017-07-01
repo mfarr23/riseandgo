@@ -1,24 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Rise and Go</title>
+  <title>Rise and Go</title>
 
-	<!--Import Google Icon Font-->
+  <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-	<!-- Compiled and minified CSS -->
-  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+  <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
 
-    <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
 
-<!-- IM THINKING WE HAVE A SIGN IN FORM ON TOP OF IMAGE(S) -->
+ <nav>
+    <div class="nav-wrapper">
+      <img src="photos/logo.png" class="brand-logo center">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a id="btnLogin" href="#mdLogin">Log in</a></li>
+        <li><a id="btnSignUp" href="#mdSignUp">Sign Up</a></li>
+        <li><a id="btnLogout" class="hide" href="#">Log out</a></li>
+      </ul>
+    </div>
+ </nav>
 
+ <div id="mdLogin" class="modal">
+  <div class="modal-content">
+   <h4>Sign In To Your Account</h4>
+   <font id="loginError" color="red"></font>
+   <input id="txtLoginEmail" type="email" placeholder="Enter Email">
+   <input id="txtLoginPassword" type="password" placeholder="Password">
+   <button id="btnLoginSubmit" class="btn btn-action">Submit</button>
+  </div>
+ </div>
 
- <div class="slider fullscreen">
+ <div id="mdSignUp" class="modal">
+  <div class="modal-content">
+   <h4>Create New Account</h4>
+   <font id="signUpError" color="red"></font>
+   <input id="txtSignUpUserName" type="text" placeholder="Username">
+   <input id="txtSignUpEmail" type="email" placeholder="Enter Email">
+   <input id="txtSignUpPassword" type="password" placeholder="Password">
+   <input id="txtSignUpConfirmPassword" type="password" placeholder="Confirm Password">
+   <button id="btnSignUpSubmit" class="btn btn-action">Submit</button>
+  </div>
+ </div>
+
+ <div class="slider">
     <ul class="slides">
       <li>
         <img src="https://lorempixel.com/580/250/nature/1"> <!-- random image -->
@@ -51,19 +80,17 @@
     </ul>
   </div>
 
+  <!-- Jquery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-    <!-- Jquery -->
-     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 
-  	<!-- Compiled and minified JavaScript -->
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
-<!-- makes the pictures appear -->
-  	<script>
-   $(document).ready(function () {
-       $('.slider').slider({full_width: true});
-   });
-</script>
-
+  <link rel="stylesheet" type="text/css" href="CSS\signInPage.css">
+  <script src="javascript/signInPage.js"></script>
+  
 </body>
 </html>

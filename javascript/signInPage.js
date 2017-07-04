@@ -1,7 +1,7 @@
 $(document).ready(function () {
        
      $('.slider').slider({full_width: true});
-     $('.slider').slider({height: ($(window).height()-120)});
+     $('#signInSlider').slider({height: ($(window).height()-120)});
      
     var config = {
     apiKey: "AIzaSyAAz1o4oosftlgvAdJvorJ_kvRx8LuE73o",
@@ -53,6 +53,7 @@ $(document).ready(function () {
       $('#mdLogin').modal('close');
       txtLoginEmail.val('');
       txtLoginPassword.val('');
+      window.location.href = 'layout.html';
      }
     });
 
@@ -60,6 +61,7 @@ $(document).ready(function () {
 
    $("#btnLogout").click(function(){
     firebase.auth().signOut();
+    window.location.href = 'signInPage.html';
    });
 
    $("#btnSignUpSubmit").click(function(){

@@ -3,40 +3,25 @@ $(document).ready(function(){
 // home address to work address
 // total transporation time = time to get ready + commute time
 
-var currentTime = null,
+var currentTimeSeconds = null,
 	date = null;
+var currentTimeMinutes = null;
+var currentTimeDate = null;
 var commuteTime = 30;
 var timeToGetReady = 20;
-var totalTimeNeededBeforeArrival = 0;
+var totalTimeNeededBeforeDeparture = commuteTime + timeToGetReady;
+
+
 // Gives you the ETA by adding the total commute time and the time to get ready with the current time
 // ie. 50 mins to get ready plus current Time: 8:00 = 8:50
 var estimatedArrivalTimeUser = "";
-var estimatedArrivalTimeGoogle = "";
-var timeYouWantToArrive = "8:00 am";
-
-$('h1').html(currentTime);
-
-var totalTimeNeededBeforeArrival = commuteTime + timeToGetReady
-console.log(totalTimeNeededBeforeArrival);
-
-
+var estimatedArrivalTimeGoogle = ""; // 8:00 AM
+var timeYouWantToArrive = "8:00 AM"; // 8:00 AM
 
 $('#commuteTime').html("Commute Time: " + commuteTime + " minutes");
 $('#timeToGetReady').html("Time to Get Ready: " + timeToGetReady + " minutes");
-$('#totalTimeNeededBeforeArrival').html("Commute Time plus Time to Get Ready: " + totalTimeNeededBeforeArrival + " minutes");
+$('#totalTimeNeededBeforeDeparture').html("Commute Time plus Time to Get Ready: " + totalTimeNeededBeforeDeparture + " minutes");
 $('#timeYouWantToArrive').html("Time You Want to Arrive At: " + timeYouWantToArrive);
-
-
-
-
-
-function eta() {
-	var estimatedArrivalTime = currentTime + totalTimeNeededBeforeArrival;
-	$('#estimatedArrivalTime').html("ETA: " + estimatedArrivalTime);
-}
-
-eta();
-
 
 
 
@@ -51,37 +36,30 @@ function alertPossibleLateness() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // -----------------CONTINUOUS CLOCK UPDATE
 
 function update() {
     date = moment(new Date())
-    currentTime.html(date.format('dddd, MMMM Do YYYY, h:mm:ss a'));
+	currentTimeSeconds.html(date.format('h:mm:ss a'));
+    currentTimeMinutes.html(date.format('h:mm a'));
+    currentTimeDate.html(date.format('dddd, MMMM Do YYYY, h:mm:ss a'));
+
 };
 
-
-    currentTime = $('#currentTime')
+	currentTimeDate = $('#currentTimeDate')
+    currentTimeSeconds = $('#currentTimeSeconds')
+    currentTimeMinutes = $('#currentTimeMinutes')
     update();
     setInterval(update, 1000);
 });
 // ---------------
+
+function eta() {
+	var estimatedArrivalTime = currentTimeSeconds + totalTimeNeededBeforeDeparture;
+	$('#estimatedArrivalTime').html("ETA: " + estimatedArrivalTime);
+}
+
+eta();
 
 
 // // Subtracting two times (estimatedArrivalTime - totalTime)

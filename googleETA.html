@@ -45,8 +45,7 @@
         <pre>
 var origin1 = {lat: 55.930, lng: -3.118};
 var origin2 = 'Greenwich, England';
-var destinationA = 'Stockholm, Sweden';
-var destinationB = {lat: 50.087, lng: 14.421};
+
         </pre>
       </div>
       <div>
@@ -60,9 +59,9 @@ var destinationB = {lat: 50.087, lng: 14.421};
         var bounds = new google.maps.LatLngBounds;
         var markersArray = [];
 
-        var origin1 = {lat: 55.93, lng: -3.118};
-        var origin2 = 'Greenwich, England';
-        var destinationA = 'Stockholm, Sweden';
+        var origin1 = prompt("Origin address");
+        var origin2 = '';
+        var destinationA = prompt("Destination adress");;
         var destinationB = {lat: 50.087, lng: 14.421};
 
         var destinationIcon = 'https://chart.googleapis.com/chart?' +
@@ -77,13 +76,16 @@ var destinationB = {lat: 50.087, lng: 14.421};
 
         var service = new google.maps.DistanceMatrixService;
         service.getDistanceMatrix({
-          origins: [origin1, origin2],
-          destinations: [destinationA, destinationB],
+          origins: [origin1],
+          destinations: [destinationA],
           travelMode: 'DRIVING',
-          unitSystem: google.maps.UnitSystem.METRIC,
+          unitSystem: google.maps.UnitSystem.IMPERIAL,
           avoidHighways: false,
           avoidTolls: false
-        }, function(response, status) {
+        }, 
+
+        function(response, status) {
+          console.log(response)
           if (status !== 'OK') {
             alert('Error was: ' + status);
           } else {

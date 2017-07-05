@@ -58,8 +58,9 @@
 <!-- WEATHER -->
 <div class="container">
   <div class="row" style>
-    <div class="s12">10 Day Forecast</div>
+    <div id="forecast_title" class="s12">10 Day Forecast</div>
     <!-- 10 CARDS FOR 10 DAY FORCAST -->
+      <div id='forecast'>
           <div class="row" style="float: left; background-color: black">
             <div class="col s1 m1">
               <div class="card blue-grey darken-1">
@@ -159,7 +160,8 @@
                 </div>
               </div>
             </div>
-          </div>          
+          </div> 
+        </div>        
 </div>
 
 <!-- YOUTUBE -->
@@ -179,7 +181,7 @@
   	<!-- Compiled and minified JavaScript -->
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 
-    <script type="text/javascript" src="transportation_function.js"></script>
+    <!-- <script type="text/javascript" src="transportation_function.js"></script> -->
     <script type="text/javascript" src="youtubeAPI.js"></script>
 
 <!-- makes the pictures appear -->
@@ -193,6 +195,7 @@
 
 <link rel="stylesheet" type="text/css" href="CSS/layout.css">
 <script src="javascript/signInPage.js"></script>
+<script src="javascript/weather.js"></script>
 
 </body>
 </html>

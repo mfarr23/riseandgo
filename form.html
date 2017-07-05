@@ -16,6 +16,19 @@
 
 <body>
 
+  <nav>
+    <div class="nav-wrapper" style="background: #75ccb9">
+    <img src="photos/logo.png" class="brand-logo center">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="layout.html">Home</a></li>
+        <li><a href="#"><i class="large material-icons">mode_edit</i></a></li>
+        <li><a href="form.html"><i class="large material-icons">settings</i></a></li>
+        <li><a id="btnLogout" class="hide" href="#">Log out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
 <div class="container">
   <div class="row">
     <p class=“grey-text text-lighten-4”>  <div class=“row”>
@@ -26,21 +39,21 @@
 
       <div class="row">
         <div class="input-field col s12">
-          <input id="HomeAddress" type="text" class="validate">
+          <input id="HomeAddress" type="text" class="mat-input">
           <label class="active" for="home_address">Home Address</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
-          <input id="workAddress" type="text" class="validate">
+          <input id="workAddress" type="text" class="mat-input">
           <label class="active" for="work_address">Work Address</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
-          <input id="MorningRoutine" type="number" class="validate">
+          <input id="MorningRoutine" type="number" class="mat-input">
           <label class="active" for="time_ready">How many minutes does it take you to get ready in the morning?</label>
         </div>
       </div>

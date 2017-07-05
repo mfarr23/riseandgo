@@ -4,13 +4,13 @@ $(document).ready(function () {
      $('#signInSlider').slider({height: ($(window).height()-120)});
      
     var config = {
-    apiKey: "AIzaSyAAz1o4oosftlgvAdJvorJ_kvRx8LuE73o",
-    authDomain: "first-project-f1ef0.firebaseapp.com",
-    databaseURL: "https://first-project-f1ef0.firebaseio.com",
-    projectId: "first-project-f1ef0",
-    storageBucket: "first-project-f1ef0.appspot.com",
-    messagingSenderId: "256133650243"
-   };
+    apiKey: "AIzaSyDYKeCU0qznswPXCkVL0pWZTI8Xa2UH4JQ",
+    authDomain: "riseandgo-b833c.firebaseapp.com",
+    databaseURL: "https://riseandgo-b833c.firebaseio.com",
+    projectId: "riseandgo-b833c",
+    storageBucket: "riseandgo-b833c.appspot.com",
+    messagingSenderId: "934689669156"
+  };
    
    firebase.initializeApp(config);
 

@@ -31,6 +31,9 @@ $(document).ready(function() {
   var MorningRoutine;
   var arriveWork = "hh:mm:ss";
   var youtube = "";
+  var localemail = localStorage.getItem("email");
+
+  console.log(localemail);
 
 //***************** Functions*****************************
 
@@ -64,7 +67,7 @@ function submitdata(event) {
       arriveWork: arriveWork,
       youtube:youtube,
       dataAdded: firebase.database.ServerValue.TIMESTAMP,
-      user: currentuser
+      email: localemail
     });
 };
 

@@ -67,6 +67,7 @@ $(document).ready(function () {
 
     firebase.auth().onAuthStateChanged(firebaseUser => {
      if (firebaseUser){
+      localStorage.setItem("email",firebaseUser.email);
       $('#mdLogin').modal('close');
       $('#loginError').empty();
       txtLoginEmail.val('');
@@ -78,6 +79,7 @@ $(document).ready(function () {
    });
 
    $("#btnLogout").click(function(){
+    localStorage.removeItem("email");
     firebase.auth().signOut();
     window.location.href = 'signInPage.html';
    });
@@ -98,6 +100,7 @@ $(document).ready(function () {
 
     firebase.auth().onAuthStateChanged(firebaseUser => {
      if (firebaseUser){
+      localStorage.setItem("email",firebaseUser.email);
       $('#mdSignUp').modal('close');
       $("#signUpError").empty();
       txtSignUpUserName.val('');

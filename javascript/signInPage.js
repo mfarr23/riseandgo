@@ -31,6 +31,18 @@ $(document).ready(function () {
     $('#mdLogin').modal();
     $('#mdSignUp').modal();
 
+    $('#mdLogin').bind('keypress', function(e) {
+     if(e.keyCode==13){
+      $('#btnLoginSubmit').trigger('click');
+     }
+    });
+
+    $('#mdSignUp').bind('keypress', function(e) {
+     if(e.keyCode==13){
+      $('#btnSignUpSubmit').trigger('click');
+     }
+    });
+
    $("#btnLoginSubmit").click(function(){
     const loginEmail = txtLoginEmail.val();
     const loginPass = txtLoginPassword.val();
@@ -51,6 +63,7 @@ $(document).ready(function () {
     firebase.auth().onAuthStateChanged(firebaseUser => {
      if (firebaseUser){
       $('#mdLogin').modal('close');
+      $('#loginError').empty();
       txtLoginEmail.val('');
       txtLoginPassword.val('');
       window.location.href = 'layout.html';
@@ -81,10 +94,12 @@ $(document).ready(function () {
     firebase.auth().onAuthStateChanged(firebaseUser => {
      if (firebaseUser){
       $('#mdSignUp').modal('close');
+      $("#signUpError").empty();
       txtSignUpUserName.val('');
       txtSignUpEmail.val('');
       txtSignUpPassword.val('');
       txtSignUpConfirmPassword.val('');
+      window.location.href = 'layout.html';
      }
     });
    });
@@ -105,6 +120,7 @@ $(document).ready(function () {
    $('#mdLogin').modal({
       dismissible: true,
       complete: function() { // Callback for Modal open. Modal and trigger parameters available.
+      $("#loginError").empty();
       txtLoginEmail.val('');
       txtLoginPassword.val('');
       }
@@ -113,6 +129,7 @@ $(document).ready(function () {
     $('#mdSignUp').modal({
       dismissible: true,
       complete: function() { // Callback for Modal open. Modal and trigger parameters available.
+      $("#signUpError").empty();
       txtLoginEmail.val('');
       txtLoginPassword.val('');
       }

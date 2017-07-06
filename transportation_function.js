@@ -1,8 +1,5 @@
 $(document).ready(function(){
 
-// home address to work address
-// total transporation time = time to get ready + commute time
-
 var currentTimeHours = null,
 	date = null;
 var currentTimeMinutes = null;
@@ -17,9 +14,7 @@ var estimatedArrivalTimeUser = "";
 var estimatedArrivalTimeUserHour = 0;
 var estimatedArrivalTimeUserMinutes = 0;
 var estimatedArrivalTimeGoogle = ""; // 8:00 AM from google API
-var timeYouWantToArrive = "8:00"; // 8:00 AM
-// var alarm  = "05/07/2017 08:00";
-
+var timeYouWantToArrive = "8:00"; 
 
 $('#timeYouWantToArrive').html(timeYouWantToArrive);
 
@@ -37,6 +32,7 @@ $('#timeYouWantToArrive').html(timeYouWantToArrive);
 	var totalTimeNeededBeforeDepartureHours = Math.floor((commuteTime + timeToGetReady) / 60);
 	var	totalTimeNeededBeforeDepartureMinutes = (commuteTime + timeToGetReady) % 60;
 
+// SOMETIMES YOU GET 21:6 for six minutes
 	$('#totalTimeNeededBeforeDeparture').html(totalTimeNeededBeforeDepartureHours + " hours, " + totalTimeNeededBeforeDepartureMinutes + " minutes");
 
 
@@ -72,21 +68,79 @@ function update() {
     currentTimeMinutes = $('#currentTimeMinutes')
     update();
     setInterval(update, 1000);
-});
+
 // ---------------
 
+});
 
+// window.setInterval(function(){ // Set interval for checking
+
+    	
+
+//     }
+// }, 60000); // Repeat every 60000 milliseconds (1 minute)
+
+// // 2. This code loads the IFrame Player API code asynchronously.
+//       var tag = document.createElement('script');
+//       tag.src = "http://www.youtube.com/player_api";
+//       var firstScriptTag = document.getElementsByTagName('script')[0];
+//       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+//       // 3. This function creates an <iframe> (and YouTube player)
+//       //    after the API code downloads.
+//       var player;
+//       var date = new Date();
+//       if(date.getHours() === 12 && date.getMinutes() === 48){
+//       function onYouTubePlayerAPIReady() {
+//         player = new YT.Player('player', {
+//           playerVars: { 'autoplay': 1, 'controls': 1,'autohide':1,'wmode':'opaque' },
+//           videoId: 'flN21pCpfZk',
+//           events: {
+//             'onReady': onPlayerReady}
+//         });
+//       }
+
+//       // 4. The API will call this function when the video player is ready.
+//       function onPlayerReady(event) {
+//         event.target.mute();
+//       }
+// };
+
+// // 2. This code loads the IFrame Player API code asynchronously.
+//       var tag = document.createElement('script');
+//       tag.src = "http://www.youtube.com/player_api";
+//       var firstScriptTag = document.getElementsByTagName('script')[0];
+//       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+//       // 3. This function creates an <iframe> (and YouTube player)
+//       //    after the API code downloads.
+//       var player;
+//       function onYouTubePlayerAPIReady() {
+//         player = new YT.Player('player', {
+//           playerVars: { 'autoplay': 1, 'controls': 1,'autohide':1,'wmode':'opaque' },
+//           videoId: 'flN21pCpfZk',
+//           events: {
+//             'onReady': onPlayerReady}
+//         });
+//       }
+
+//       // 4. The API will call this function when the video player is ready.
+//       function onPlayerReady(event) {
+//         event.target.mute();
+//       }
 // NEED A IF THEN STATEMENT
 // IF TOTAL COMMUTE TIME IS LESS THAN 30 MINS THEN SOUND ALARM AT 7AM
 // IF MORE THAN 30 MINS THEN SOUND ALARM AT 7AM MINUS EXTRA TIME NEEDED
-function alertPossibleLateness() {
-	if ((estimatedArrivalTimeGoogle) === estimatedArrivalTimeUser) {
-		alert("You must leave now")
-	}
-	else if ((estimatedArrivalTimeGoogle) > estimatedArrivalTimeUser) {
-		alert("You are late! Leave NOW!!")
-	}
-};
+// function alertPossibleLateness() {
+//       if (parseInt(estimatedArrivalTimeUser) === parseInt("9:19")) {
+//       	onYouTubePlayerAPIReady();
+//       }
+//       else {
+//       	onPlayerReady();
+//       };
+// }
+// alertPossibleLateness()
+
 
 
 // SCRAPWORK------------------------******************************

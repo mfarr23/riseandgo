@@ -24,6 +24,9 @@
         <li><a href="#"><i class="large material-icons">mode_edit</i></a></li>
         <li><a href="form.html"><i class="large material-icons">settings</i></a></li>
         <li><a id="btnLogout" class="hide" href="#">Log out</a></li>
+
+        <li><a id="btnLogin" class="hide" href="#mdLogin">Log in</a></li>
+        <li><a id="btnSignUp" class="hide" href="#mdSignUp">Sign Up</a></li>
       </ul>
     </div>
   </nav>
@@ -35,7 +38,7 @@
     <form class="col s12">
       <div class="row">
 
-      <H2>Preferences</H2>
+      <H2>Settings</H2>
 
       <div class="row">
         <div class="input-field col s12">
@@ -64,6 +67,14 @@
           <label class="active" for="arrive_work">Time I wish to Arrive at Work</label>
         </div>
       </div>
+
+            <div class="row">
+        <div class="input-field col s12">
+          <input id="youtube" type="text" class="mat-input">
+          <label class="active" for="youtube">Youtube video to wake up to</label>
+        </div>
+      </div>
+
       <button id="submit" class="btn waves-effect waves-light" type="submit" name="action">Submit
         <i class="material-icons right">send</i>
       </button>
@@ -73,12 +84,16 @@
   </div>
 </div>
 
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 
-<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+
+
+
 
 <!-- Compiled and minified JavaScript -->
 <!-- <script src=“https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js”></script> -->
@@ -87,8 +102,8 @@
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.js"></script> -->
 <!-- <script src="material-datetime-picker.js" charset="utf-8"></script> -->
-
- <script src="form.js"></script>
+<script src="javascript/signInPage.js"></script>
+ <script src="javascript/form.js"></script>
 
 </body>
 </html>

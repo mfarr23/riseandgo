@@ -1,7 +1,12 @@
 $(document).ready(function () {
        
-     $('.slider').slider({full_width: true});
-     $('#signInSlider').slider({height: ($(window).height()-120)});
+     if (!$('.slider').length){
+      $('.slider').slider({full_width: true});
+     }
+
+     if(!$("#signInSlider").length){
+      $('#signInSlider').slider({height: ($(window).height()-120)});
+     }
      
     var config = {
     apiKey: "AIzaSyDYKeCU0qznswPXCkVL0pWZTI8Xa2UH4JQ",

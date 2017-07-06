@@ -13,15 +13,15 @@ $(document).ready(function() {
   // firebase.initializeApp(config);
 
    // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDYKeCU0qznswPXCkVL0pWZTI8Xa2UH4JQ",
-    authDomain: "riseandgo-b833c.firebaseapp.com",
-    databaseURL: "https://riseandgo-b833c.firebaseio.com",
-    projectId: "riseandgo-b833c",
-    storageBucket: "riseandgo-b833c.appspot.com",
-    messagingSenderId: "934689669156"
-  };
-  firebase.initializeApp(config);
+  // var config = {
+  //   apiKey: "AIzaSyDYKeCU0qznswPXCkVL0pWZTI8Xa2UH4JQ",
+  //   authDomain: "riseandgo-b833c.firebaseapp.com",
+  //   databaseURL: "https://riseandgo-b833c.firebaseio.com",
+  //   projectId: "riseandgo-b833c",
+  //   storageBucket: "riseandgo-b833c.appspot.com",
+  //   messagingSenderId: "934689669156"
+  // };
+  // firebase.initializeApp(config);
 
 
 // *************VARIABLES************************
@@ -74,28 +74,28 @@ function submitdata(event) {
    // onclick of  buttons
 $(document).on("click", "#submit", submitdata);
 
-// ///styling 
-// $(".mat-input").focus(function(){
-//   $(this).parent().addClass("is-active is-completed");
-// });
+///styling 
+$(".mat-input").focus(function(){
+  $(this).parent().addClass("is-active is-completed");
+});
 
-// $(".mat-input").focusout(function(){
-//   if($(this).val() === "")
-//     $(this).parent().removeClass("is-completed");
-//   $(this).parent().removeClass("is-active");
-// })
+$(".mat-input").focusout(function(){
+  if($(this).val() === "")
+    $(this).parent().removeClass("is-completed");
+  $(this).parent().removeClass("is-active");
+})
 
-//   $('.timepicker').pickatime({
-//     default: 'now', // Set default time
-//     fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
-//     twelvehour: false, // Use AM/PM or 24-hour format
-//     donetext: 'OK', // text for done-button
-//     cleartext: 'Clear', // text for clear-button
-//     canceltext: 'Cancel', // Text for cancel-button
-//     autoclose: false, // automatic close timepicker
-//     ampmclickable: true, // make AM PM clickable
-//     // aftershow: function(){} //Function for after opening timepicker  
-//   });
+  $('.timepicker').pickatime({
+    default: 'now', // Set default time
+    fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+    twelvehour: false, // Use AM/PM or 24-hour format
+    donetext: 'OK', // text for done-button
+    cleartext: 'Clear', // text for clear-button
+    canceltext: 'Cancel', // Text for cancel-button
+    autoclose: false, // automatic close timepicker
+    ampmclickable: true, // make AM PM clickable
+    // aftershow: function(){} //Function for after opening timepicker  
+  });
 
 
 });

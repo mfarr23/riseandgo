@@ -80,6 +80,7 @@ function update() {
 //     }
 // }, 60000); // Repeat every 60000 milliseconds (1 minute)
 
+
 // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
       tag.src = "http://www.youtube.com/player_api";
@@ -90,44 +91,38 @@ function update() {
       //    after the API code downloads.
       var player;
       var date = new Date();
-      if(date.getHours() === 12) {
+
+// var ytPlayVideo = setInterval(onYouTubePlayerAPIReady, 1000);
+// console.log(ytPlayVideo);
+// input wake up time here ie. 8:30 am (date.getHours() === 8 && date.getMinutes() === 30)
+// if its the time you want to wake up, play youtube video, otherwise load it without autoplay
       function onYouTubePlayerAPIReady() {
-        player = new YT.Player('player', {
-          playerVars: { 'autoplay': 1, 'controls': 1,'autohide':1,'wmode':'opaque' },
-          videoId: 'flN21pCpfZk',
-          events: {
-            'onReady': onPlayerReady}
-        });
-      }
+      	    if(date.getHours() === 14 && date.getMinutes() === 05) {
+		        player = new YT.Player('player', {
+		          playerVars: { 'autoplay': 1, 'controls': 1,'autohide':1,'wmode':'opaque' },
+		          videoId: 'uzt6vlpdZWM',
+		          events: {
+		            'onReady': onPlayerReady}
+		        });
+		    }
+		    else {
+		        player = new YT.Player('player', {
+		    	playerVars: { 'autoplay': 0, 'controls': 1,'autohide':1,'wmode':'opaque' },
+		          videoId: 'uzt6vlpdZWM',
+		          events: {
+		            'onReady': onPlayerReady}
+		    	});
+		    }
+      
 
       // 4. The API will call this function when the video player is ready.
       function onPlayerReady(event) {
         event.target.mute();
       }
-};
+    };
 
-// // 2. This code loads the IFrame Player API code asynchronously.
-//       var tag = document.createElement('script');
-//       tag.src = "http://www.youtube.com/player_api";
-//       var firstScriptTag = document.getElementsByTagName('script')[0];
-//       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-//       // 3. This function creates an <iframe> (and YouTube player)
-//       //    after the API code downloads.
-//       var player;
-//       function onYouTubePlayerAPIReady() {
-//         player = new YT.Player('player', {
-//           playerVars: { 'autoplay': 1, 'controls': 1,'autohide':1,'wmode':'opaque' },
-//           videoId: 'flN21pCpfZk',
-//           events: {
-//             'onReady': onPlayerReady}
-//         });
-//       }
 
-//       // 4. The API will call this function when the video player is ready.
-//       function onPlayerReady(event) {
-//         event.target.mute();
-//       }
 // NEED A IF THEN STATEMENT
 // IF TOTAL COMMUTE TIME IS LESS THAN 30 MINS THEN SOUND ALARM AT 7AM
 // IF MORE THAN 30 MINS THEN SOUND ALARM AT 7AM MINUS EXTRA TIME NEEDED

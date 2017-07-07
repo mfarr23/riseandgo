@@ -94,13 +94,13 @@ function update() {
 // if its the time you want to wake up, play youtube video, otherwise load it without autoplay
 // NEED TO SET AN INTERVAL TO RELOAD THIS FUNCTION EVERY MINUTE
 	function onYouTubePlayerAPIReady() {
-		    if(date.getHours() === 15 && date.getMinutes() === 11) {
+		    if(date.getHours() === 15 && date.getMinutes() === 22) {
 	        player = new YT.Player('player', {
 	          playerVars: { 'autoplay': 1, 'controls': 1,'autohide':1,'wmode':'opaque' },
 	          videoId: 'uzt6vlpdZWM',
 	          events: {
 	            'onReady': onPlayerReady}
-	        });
+	        })
 	    }
 	    else {
 	        player = new YT.Player('player', {
@@ -109,14 +109,15 @@ function update() {
 	          events: {
 	            'onReady': onPlayerReady}
 	    	})
+	    	// console.log("Its not time to wake up");
+	    	onYouTubePlayerAPIReady();
+	    	
 	    }
-      
 // The API will call this function when the video player is ready.
 	function onPlayerReady(event) {
-		event.target.unmute();
+		event.target.mute();
 		}
 };
-	setInterval(onYouTubePlayerAPIReady, 10000)
 
 
 // --------Scrap

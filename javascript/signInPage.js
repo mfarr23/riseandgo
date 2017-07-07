@@ -1,7 +1,12 @@
 $(document).ready(function () {
        
-     $('.slider').slider({full_width: true});
-     $('#signInSlider').slider({height: ($(window).height()-120)});
+     if (!$('.slider').length){
+      $('.slider').slider({full_width: true});
+     }
+
+     if(!$("#signInSlider").length){
+      $('#signInSlider').slider({height: ($(window).height()-120)});
+     }
      
     var config = {
     apiKey: "AIzaSyDYKeCU0qznswPXCkVL0pWZTI8Xa2UH4JQ",
@@ -62,6 +67,7 @@ $(document).ready(function () {
 
     firebase.auth().onAuthStateChanged(firebaseUser => {
      if (firebaseUser){
+      localStorage.setItem("email",firebaseUser.email);
       $('#mdLogin').modal('close');
       $('#loginError').empty();
       txtLoginEmail.val('');
@@ -73,6 +79,7 @@ $(document).ready(function () {
    });
 
    $("#btnLogout").click(function(){
+    localStorage.removeItem("email");
     firebase.auth().signOut();
     window.location.href = 'signInPage.html';
    });
@@ -93,6 +100,7 @@ $(document).ready(function () {
 
     firebase.auth().onAuthStateChanged(firebaseUser => {
      if (firebaseUser){
+      localStorage.setItem("email",firebaseUser.email);
       $('#mdSignUp').modal('close');
       $("#signUpError").empty();
       txtSignUpUserName.val('');

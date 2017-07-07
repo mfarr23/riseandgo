@@ -1,14 +1,11 @@
 $(document).ready(function(){
 
-// home address to work address
-// total transporation time = time to get ready + commute time
-
 var currentTimeHours = null,
 	date = null;
 var currentTimeMinutes = null;
 var currentTime = null;
-var commuteTime = 90;
-var timeToGetReady = 20;
+var commuteTime = 98;
+var timeToGetReady = 23;
 var totalTimeNeededBeforeDepartureHours = 0;
 var	totalTimeNeededBeforeDepartureMinutes = 0;
 // Gives you the ETA by adding the total commute time and the time to get ready with the current time
@@ -17,10 +14,14 @@ var estimatedArrivalTimeUser = "";
 var estimatedArrivalTimeUserHour = 0;
 var estimatedArrivalTimeUserMinutes = 0;
 var estimatedArrivalTimeGoogle = ""; // 8:00 AM from google API
+<<<<<<< HEAD
 
 var timeYouWantToArrive = "8:00"; // 8:00 AM
 // var alarm  = "05/07/2017 08:00";
 
+=======
+var timeYouWantToArrive = "8:00"; 
+>>>>>>> 4880e0d5fcb55ef9d66ba34b43dd773b8f850b00
 
 $('#timeYouWantToArrive').html(timeYouWantToArrive);
 
@@ -38,7 +39,13 @@ $('#timeYouWantToArrive').html(timeYouWantToArrive);
 	var totalTimeNeededBeforeDepartureHours = Math.floor((commuteTime + timeToGetReady) / 60);
 	var	totalTimeNeededBeforeDepartureMinutes = (commuteTime + timeToGetReady) % 60;
 
+// SOMETIMES YOU GET 21:6 for six minutes so I put in this if else statement
+if (totalTimeNeededBeforeDepartureMinutes < 10) {
+	$('#totalTimeNeededBeforeDeparture').html(totalTimeNeededBeforeDepartureHours + " hours, 0" + totalTimeNeededBeforeDepartureMinutes + " minutes");
+}
+else {
 	$('#totalTimeNeededBeforeDeparture').html(totalTimeNeededBeforeDepartureHours + " hours, " + totalTimeNeededBeforeDepartureMinutes + " minutes");
+}
 
 
 // -----------------CONTINUOUS CLOCK UPDATE
@@ -73,13 +80,69 @@ function update() {
     currentTimeMinutes = $('#currentTimeMinutes')
     update();
     setInterval(update, 1000);
-});
-// ---------------
 
+
+});
+// END DOCUMENT.READY
+
+// FOR SOME REASON THE YOUTUBE ONLY LOADS WHEN OUTSIDE OF DOCUMENT.READY below:
+
+// This code loads the IFrame Player API code asynchronously.
+	var tag = document.createElement('script');
+	tag.src = "http://www.youtube.com/player_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player) after the API code downloads.
+	var player;
+	var date = new Date();
+
+// input wake up time here ie. 8:30 am (date.getHours() === 8 && date.getMinutes() === 30)
+// if its the time you want to wake up, play youtube video, otherwise load it without autoplay
+// NEED TO SET AN INTERVAL TO RELOAD THIS FUNCTION EVERY MINUTE
+	function onYouTubePlayerAPIReady() {
+		    if(date.getHours() === 15 && date.getMinutes() === 22) {
+	        player = new YT.Player('player', {
+	          playerVars: { 'autoplay': 1, 'controls': 1,'autohide':1,'wmode':'opaque' },
+	          videoId: 'uzt6vlpdZWM',
+	          events: {
+	            'onReady': onPlayerReady}
+	        })
+	    }
+	    else {
+	        player = new YT.Player('player', {
+	    	playerVars: { 'autoplay': 0, 'controls': 1,'autohide':1,'wmode':'opaque' },
+	          videoId: 'uzt6vlpdZWM',
+	          events: {
+	            'onReady': onPlayerReady}
+	    	})
+	    	// console.log("Its not time to wake up");
+	    	onYouTubePlayerAPIReady();
+	    	
+	    }
+// The API will call this function when the video player is ready.
+	function onPlayerReady(event) {
+		event.target.mute();
+		}
+};
+
+
+// --------Scrap
+
+// window.setInterval(function(){ // Set interval for checking
+
+//     }
+// }, 60000); // Repeat every 60000 milliseconds (1 minute)
+
+// var ytPlayVideo = setInterval(onYouTubePlayerAPIReady, 1000);
+// console.log(ytPlayVideo);
+
+// Scrap-------------
 
 // NEED A IF THEN STATEMENT
 // IF TOTAL COMMUTE TIME IS LESS THAN 30 MINS THEN SOUND ALARM AT 7AM
 // IF MORE THAN 30 MINS THEN SOUND ALARM AT 7AM MINUS EXTRA TIME NEEDED
+<<<<<<< HEAD
 function alertPossibleLateness() {
 	if ((estimatedArrivalTimeGoogle) === estimatedArrivalTimeUser) {
 		alert("You must leave now")
@@ -192,6 +255,20 @@ function initMap() {
 
        console.log(initMap);
 // console.log(theDuration)
+=======
+// function alertPossibleLateness() {
+//       if (parseInt(estimatedArrivalTimeUser) === parseInt("9:19")) {
+//       	onYouTubePlayerAPIReady();
+//       }
+//       else {
+//       	onPlayerReady();
+//       };
+// }
+// alertPossibleLateness()
+
+
+
+>>>>>>> 4880e0d5fcb55ef9d66ba34b43dd773b8f850b00
 // SCRAPWORK------------------------******************************
 
 // // --------difference inbetween current time and alarm time

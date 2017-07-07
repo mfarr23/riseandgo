@@ -1,61 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Distance Matrix service</title>
-    <style>
-      #right-panel {
-        font-family: 'Roboto','sans-serif';
-        line-height: 30px;
-        padding-left: 10px;
-      }
-
-      #right-panel select, #right-panel input {
-        font-size: 15px;
-      }
-
-      #right-panel select {
-        width: 100%;
-      }
-
-      #right-panel i {
-        font-size: 12px;
-      }
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        height: 100%;
-        width: 50%;
-      }
-      #right-panel {
-        float: right;
-        width: 48%;
-        padding-left: 2%;
-      }
-      #output {
-        font-size: 11px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="right-panel">
-      <div id="inputs">
-        <pre>
-var origin1 = {lat: 55.930, lng: -3.118};
-var origin2 = 'Greenwich, England';
-
-        </pre>
-      </div>
-      <div>
-        <strong>Results</strong>
-      </div>
-      <div id="output"></div>
-    </div>
-    <div id="map"></div>
-    <script>
-      function initMap() {
+function initMap() {
         var bounds = new google.maps.LatLngBounds;
         var markersArray = [];
 
@@ -131,7 +74,7 @@ var origin2 = 'Greenwich, England';
 
                  // Duration variable
                  var duration = element.duration.value;
-                 console.log(duration / 60 + "mins")
+                 console.log(duration /60)
         
               }
             }
@@ -147,9 +90,4 @@ var origin2 = 'Greenwich, England';
         }
         markersArray = [];
       }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJlW6FTYGOdrbT49WeKOUvQYv_o-Q9VuU&callback=initMap">
-    </script>
-  </body>
-</html>
+    

@@ -1,60 +1,66 @@
-<<<<<<< HEAD
-// $(document).ready(function(){
+$(document).ready(function(){
 
-// var currentTimeHours = null,
-// 	date = null;
-// var currentTimeMinutes = null;
-// var currentTime = null;
-// var commuteTime = 98;
-// var timeToGetReady = 23;
-// var totalTimeNeededBeforeDepartureHours = 0;
-// var	totalTimeNeededBeforeDepartureMinutes = 0;
-// // Gives you the ETA by adding the total commute time and the time to get ready with the current time
-// // ie. 50 mins to get ready plus current Time: 8:00 = 8:50
-// var estimatedArrivalTimeUser = "";
-// var estimatedArrivalTimeUserHour = 0;
-// var estimatedArrivalTimeUserMinutes = 0;
-// var estimatedArrivalTimeGoogle = ""; // 8:00 AM from google API
+var currentTimeHours = null,
+	date = null;
+var currentTimeMinutes = null;
+var currentTime = null;
+var timeToGetReady = 0;
+// Gives you the ETA by adding the total commute time and the time to get ready with the current time
+// ie. 50 mins to get ready plus current Time: 8:00 = 8:50
+var transportationTimeGoogle = 0; // 8:00 AM from google API
+var totalTimeNeededBeforeDepartureTotalMinutes = 0;
+var timeYouWantToArrive = "8:00"; // 8:00 AM
+var timeYouWantToArriveHours = 8;
+var timeYouWantToArriveMinutes = 0;
+var timeYouWantToArriveTotalMinutes = 0;
+var alarmTotalMinutes = 0;
+var alarmHours = 0;
+var alarmMinutes = 0;
+var alarm  = "";
 
-// var timeYouWantToArrive = "8:00"; // 8:00 AM
-// // var alarm  = "05/07/2017 08:00";
+// Turning everything into total minutes
+var timeYouWantToArriveHoursInMinutes = 1 * 60;
+var timeYouWantToArriveTotalMinutes = timeYouWantToArriveHoursInMinutes + timeYouWantToArriveMinutes;
+var transportationTimeGoogle = 7;
+var timeToGetReadyMinutes = 13;
 
+// add latter two variables
+var totalTimeNeededBeforeDepartureTotalMinutes = transportationTimeGoogle + timeToGetReadyMinutes;
 
-// var timeYouWantToArrive = "8:00"; 
+// now subtract from google ETA
+var alarmTotalMinutes = timeYouWantToArriveTotalMinutes - totalTimeNeededBeforeDepartureTotalMinutes;
 
-// $('#timeYouWantToArrive').html(timeYouWantToArrive);
+// convert alarm into hours and minutes
+var alarmHours = Math.floor(alarmTotalMinutes / 60); 
+var alarmMinutes = alarmTotalMinutes % 60;
+console.log(alarmHours);
+console.log(alarmMinutes);
+console.log(alarmTotalMinutes);
 
-// // BREAKING DOWN TIME INTO HOURS AND MINS
-// 	var timeToGetReadyHours = Math.floor(timeToGetReady / 60);          
-// 	var timeToGetReadyMinutes = timeToGetReady % 60;
+function refreshAt(hours, minutes, seconds) {
+    var now = new Date();
+    var then = new Date();
 
-// 	  $('#timeToGetReady').html(timeToGetReadyHours + " hours, " + timeToGetReadyMinutes + " minutes");
+    if(now.getHours() > hours ||
+       (now.getHours() == hours && now.getMinutes() > minutes) ||
+        now.getHours() == hours && now.getMinutes() == minutes && now.getSeconds() >= seconds) {
+        then.setDate(now.getDate() + 1);
+    }
+    then.setHours(hours);
+    then.setMinutes(minutes);
+    then.setSeconds(seconds);
 
-// 	var commuteTimeHours = Math.floor(commuteTime / 60);          
-// 	var commuteTimeMinutes = commuteTime % 60;
+    var timeout = (then.getTime() - now.getTime());
+    setTimeout(function() { window.location.reload(true); }, timeout);
+};
 
-// 	  $('#commuteTime').html(commuteTimeHours + " hours, " + commuteTimeMinutes + " minutes");
+refreshAt(alarmHours,alarmMinutes,0);
 
-// 	var totalTimeNeededBeforeDepartureHours = Math.floor((commuteTime + timeToGetReady) / 60);
-// 	var	totalTimeNeededBeforeDepartureMinutes = (commuteTime + timeToGetReady) % 60;
+// -----------------CONTINUOUS CLOCK UPDATE
 
-// // SOMETIMES YOU GET 21:6 for six minutes so I put in this if else statement
-// if (totalTimeNeededBeforeDepartureMinutes < 10) {
-// 	$('#totalTimeNeededBeforeDeparture').html(totalTimeNeededBeforeDepartureHours + " hours, 0" + totalTimeNeededBeforeDepartureMinutes + " minutes");
-// }
-// else {
-// 	$('#totalTimeNeededBeforeDeparture').html(totalTimeNeededBeforeDepartureHours + " hours, " + totalTimeNeededBeforeDepartureMinutes + " minutes");
-// }
-
-
-// // -----------------CONTINUOUS CLOCK UPDATE
-
-// function update() {
-//     date = moment(new Date())
-// 	currentTime.html(date.format('HH:mm:ss'));
-// 	currentTimeHours.html(date.format('HH'));
-//     currentTimeMinutes.html(date.format('mm'));
-//     // currentTimeDate.html(date.format("DD/MM/YYYY HH:mm"));
+function update() {
+    date = moment(new Date())
+    currentTimeDate.html(date.format("DD/MM/YYYY HH:mm:ss"));
 
 // // converts current time and total time needed before departure into only minutes 1:10 = 70 mins
 // 	var currentTimeConvertedMinutes = ((parseInt(currentTimeHours[0].innerHTML)) * 60) + (parseInt(currentTimeMinutes[0].innerHTML));
@@ -67,145 +73,51 @@
 // // finds minutes
 // 	var estimatedArrivalTimeUserMinutes = (currentTimeConvertedMinutes + totalTimeNeededBeforeDepartureConvertedMinutes) % 60;
 // 	console.log(estimatedArrivalTimeUserMinutes);
-
-// // combines minutes and hours
-// 	var estimatedArrivalTimeUser = (estimatedArrivalTimeUserHour + ":" + estimatedArrivalTimeUserMinutes);
-//     $('#estimatedArrivalTimeUser').html(estimatedArrivalTimeUser);
-// };
-
-// // sets times equal to divs and updates every second
-//     currentTime = $('#currentTime')
-//     currentTimeHours = $('#currentTimeHours')
-//     currentTimeMinutes = $('#currentTimeMinutes')
-//     update();
-//     setInterval(update, 1000);
-
-
-// });
-// // END DOCUMENT.READY
-
-// // FOR SOME REASON THE YOUTUBE ONLY LOADS WHEN OUTSIDE OF DOCUMENT.READY below:
-
-// // This code loads the IFrame Player API code asynchronously.
-// 	var tag = document.createElement('script');
-// 	tag.src = "http://www.youtube.com/player_api";
-// 	var firstScriptTag = document.getElementsByTagName('script')[0];
-// 	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-// // 3. This function creates an <iframe> (and YouTube player) after the API code downloads.
-// 	var player;
-// 	var date = new Date();
-
-// // input wake up time here ie. 8:30 am (date.getHours() === 8 && date.getMinutes() === 30)
-// // if its the time you want to wake up, play youtube video, otherwise load it without autoplay
-// // NEED TO SET AN INTERVAL TO RELOAD THIS FUNCTION EVERY MINUTE
-// 	function onYouTubePlayerAPIReady() {
-// 		    if(date.getHours() === 15 && date.getMinutes() === 22) {
-// 	        player = new YT.Player('player', {
-// 	          playerVars: { 'autoplay': 1, 'controls': 1,'autohide':1,'wmode':'opaque' },
-// 	          videoId: 'uzt6vlpdZWM',
-// 	          events: {
-// 	            'onReady': onPlayerReady}
-// 	        })
-// 	    }
-// 	    else {
-// 	        player = new YT.Player('player', {
-// 	    	playerVars: { 'autoplay': 0, 'controls': 1,'autohide':1,'wmode':'opaque' },
-// 	          videoId: 'uzt6vlpdZWM',
-// 	          events: {
-// 	            'onReady': onPlayerReady}
-// 	    	})
-// 	    	// console.log("Its not time to wake up");
-// 	    	onYouTubePlayerAPIReady();
-=======
-$(document).ready(function(){
-
-var currentTimeHours = null,
-	date = null;
-var currentTimeMinutes = null;
-var currentTime = null;
-var commuteTime = 98;
-var timeToGetReady = 23;
-var totalTimeNeededBeforeDepartureHours = 0;
-var	totalTimeNeededBeforeDepartureMinutes = 0;
-// Gives you the ETA by adding the total commute time and the time to get ready with the current time
-// ie. 50 mins to get ready plus current Time: 8:00 = 8:50
-var estimatedArrivalTimeUser = "";
-var estimatedArrivalTimeUserHour = 0;
-var estimatedArrivalTimeUserMinutes = 0;
-var estimatedArrivalTimeGoogle = ""; // 8:00 AM from google API
-
-
-var timeYouWantToArrive = "8:00"; // 8:00 AM
-// var alarm  = "05/07/2017 08:00";
-
-
-var timeYouWantToArrive = "8:00"; 
-
-
-$('#timeYouWantToArrive').html(timeYouWantToArrive);
-
-// BREAKING DOWN TIME INTO HOURS AND MINS
-	var timeToGetReadyHours = Math.floor(timeToGetReady / 60);          
-	var timeToGetReadyMinutes = timeToGetReady % 60;
-
-	  $('#timeToGetReady').html(timeToGetReadyHours + " hours, " + timeToGetReadyMinutes + " minutes");
-
-	var commuteTimeHours = Math.floor(commuteTime / 60);          
-	var commuteTimeMinutes = commuteTime % 60;
-
-	  $('#commuteTime').html(commuteTimeHours + " hours, " + commuteTimeMinutes + " minutes");
-
-	var totalTimeNeededBeforeDepartureHours = Math.floor((commuteTime + timeToGetReady) / 60);
-	var	totalTimeNeededBeforeDepartureMinutes = (commuteTime + timeToGetReady) % 60;
-
-// SOMETIMES YOU GET 21:6 for six minutes so I put in this if else statement
-if (totalTimeNeededBeforeDepartureMinutes < 10) {
-	$('#totalTimeNeededBeforeDeparture').html(totalTimeNeededBeforeDepartureHours + " hours, 0" + totalTimeNeededBeforeDepartureMinutes + " minutes");
+// }
 }
-else {
-	$('#totalTimeNeededBeforeDeparture').html(totalTimeNeededBeforeDepartureHours + " hours, " + totalTimeNeededBeforeDepartureMinutes + " minutes");
-}
-
-
-// -----------------CONTINUOUS CLOCK UPDATE
-
-function update() {
-    date = moment(new Date())
-	currentTime.html(date.format('HH:mm:ss'));
-	currentTimeHours.html(date.format('HH'));
-    currentTimeMinutes.html(date.format('mm'));
-    // currentTimeDate.html(date.format("DD/MM/YYYY HH:mm"));
-
-// converts current time and total time needed before departure into only minutes 1:10 = 70 mins
-	var currentTimeConvertedMinutes = ((parseInt(currentTimeHours[0].innerHTML)) * 60) + (parseInt(currentTimeMinutes[0].innerHTML));
-    var totalTimeNeededBeforeDepartureConvertedMinutes = (commuteTimeHours * 60) + commuteTimeMinutes + (timeToGetReadyHours * 60) + timeToGetReadyMinutes;
-
-// finds hour
-	var estimatedArrivalTimeUserHour = Math.floor((parseInt(currentTimeConvertedMinutes) + totalTimeNeededBeforeDepartureConvertedMinutes) / 60);
-	console.log(estimatedArrivalTimeUserHour);
-
-// finds minutes
-	var estimatedArrivalTimeUserMinutes = (currentTimeConvertedMinutes + totalTimeNeededBeforeDepartureConvertedMinutes) % 60;
-	console.log(estimatedArrivalTimeUserMinutes);
-
-// combines minutes and hours
-	var estimatedArrivalTimeUser = (estimatedArrivalTimeUserHour + ":" + estimatedArrivalTimeUserMinutes);
-    $('#estimatedArrivalTimeUser').html(estimatedArrivalTimeUser);
-};
-
 // sets times equal to divs and updates every second
-    currentTime = $('#currentTime')
-    currentTimeHours = $('#currentTimeHours')
-    currentTimeMinutes = $('#currentTimeMinutes')
+    currentTimeDate = $('#runningClock');
     update();
     setInterval(update, 1000);
 
-
 });
-// END DOCUMENT.READY
 
+// END DOCUMENT.READY
+var timeToGetReady = 0;
+// Gives you the ETA by adding the total commute time and the time to get ready with the current time
+// ie. 50 mins to get ready plus current Time: 8:00 = 8:50
+var transportationTimeGoogle = 0; // 8:00 AM from google API
+var totalTimeNeededBeforeDepartureTotalMinutes = 0;
+var timeYouWantToArrive = "8:00"; // 8:00 AM
+var timeYouWantToArriveHours = 8;
+var timeYouWantToArriveMinutes = 0;
+var timeYouWantToArriveTotalMinutes = 0;
+var alarmTotalMinutes = 0;
+var alarmHours = 0;
+var alarmMinutes = 0;
+var alarm  = "";
+
+// Turning everything into total minutes
+var timeYouWantToArriveHoursInMinutes = 1 * 60;
+var timeYouWantToArriveTotalMinutes = timeYouWantToArriveHoursInMinutes + timeYouWantToArriveMinutes;
+var transportationTimeGoogle = 7;
+var timeToGetReadyMinutes = 13;
+
+// add latter two variables
+var totalTimeNeededBeforeDepartureTotalMinutes = transportationTimeGoogle + timeToGetReadyMinutes;
+
+// now subtract from google ETA
+var alarmTotalMinutes = timeYouWantToArriveTotalMinutes - totalTimeNeededBeforeDepartureTotalMinutes;
+
+// convert alarm into hours and minutes
+var alarmHours = Math.floor(alarmTotalMinutes / 60); 
+var alarmMinutes = alarmTotalMinutes % 60;
+console.log(alarmHours);
+console.log(alarmMinutes);
+console.log(alarmTotalMinutes);
 // FOR SOME REASON THE YOUTUBE ONLY LOADS WHEN OUTSIDE OF DOCUMENT.READY below:
+// $( "body" ).load(function() {
+  // Run code
 
 // This code loads the IFrame Player API code asynchronously.
 	var tag = document.createElement('script');
@@ -221,7 +133,7 @@ function update() {
 // if its the time you want to wake up, play youtube video, otherwise load it without autoplay
 // NEED TO SET AN INTERVAL TO RELOAD THIS FUNCTION EVERY MINUTE
 	function onYouTubePlayerAPIReady() {
-		    if(date.getHours() === 15 && date.getMinutes() === 22) {
+		    if(date.getHours() === alarmHours && date.getMinutes() === alarmMinutes) {
 	        player = new YT.Player('player', {
 	          playerVars: { 'autoplay': 1, 'controls': 1,'autohide':1,'wmode':'opaque' },
 	          videoId: 'uzt6vlpdZWM',
@@ -235,17 +147,14 @@ function update() {
 	          videoId: 'uzt6vlpdZWM',
 	          events: {
 	            'onReady': onPlayerReady}
-	    	})
-	    	// console.log("Its not time to wake up");
-	    	onYouTubePlayerAPIReady();
->>>>>>> eaa1c73e9a0a8a2c4ffbae34f5ae487f111a8155
-	    	
-// 	    }
-// // The API will call this function when the video player is ready.
-// 	function onPlayerReady(event) {
-// 		event.target.mute();
-// 		}
-// };
+        });
+	    }
+    }
+// The API will call this function when the video player is ready.
+	function onPlayerReady(event) {
+		event.target.unmute();
+		}
+
 
 
 // --------Scrap
@@ -263,7 +172,6 @@ function update() {
 // NEED A IF THEN STATEMENT
 // IF TOTAL COMMUTE TIME IS LESS THAN 30 MINS THEN SOUND ALARM AT 7AM
 // IF MORE THAN 30 MINS THEN SOUND ALARM AT 7AM MINUS EXTRA TIME NEEDED
-<<<<<<< HEAD
 // function alertPossibleLateness() {
 // 	if ((estimatedArrivalTimeGoogle) === estimatedArrivalTimeUser) {
 // 		alert("You must leave now")
@@ -272,131 +180,122 @@ function update() {
 // 		alert("You are late! Leave NOW!!")
 // 	}
 // };
-=======
 
-function alertPossibleLateness() {
-	if ((estimatedArrivalTimeGoogle) === estimatedArrivalTimeUser) {
-		alert("You must leave now")
-	}
-	else if ((estimatedArrivalTimeGoogle) > estimatedArrivalTimeUser) {
-		alert("You are late! Leave NOW!!")
-	}
-};
->>>>>>> eaa1c73e9a0a8a2c4ffbae34f5ae487f111a8155
+// function alertPossibleLateness() {
+// 	if ((estimatedArrivalTimeGoogle) === estimatedArrivalTimeUser) {
+// 		alert("You must leave now")
+// 	}
+// 	else if ((estimatedArrivalTimeGoogle) > estimatedArrivalTimeUser) {
+// 		alert("You are late! Leave NOW!!")
+// 	}
+// };
  
-// google.initMap.
+// // google.initMap.
 
-// Goole Distance Matrix API--------------*************************************
+// // Goole Distance Matrix API--------------*************************************
 
 
-function initMap() {
-        var bounds = new google.maps.LatLngBounds;
-        var markersArray = [];
+// function initMap() {
+//         var bounds = new google.maps.LatLngBounds;
+//         var markersArray = [];
 
-        var origin1 = "Philadelphia";
-        var origin2 = "";
-        var destinationA = "New York";
-        var destinationB = {lat: 50.087, lng: 14.421};
+//         var origin1 = "Philadelphia";
+//         var origin2 = "";
+//         var destinationA = "New York";
+//         var destinationB = {lat: 50.087, lng: 14.421};
 
-        var destinationIcon = 'https://chart.googleapis.com/chart?' +
-            'chst=d_map_pin_letter&chld=D|FF0000|000000';
-        var originIcon = 'https://chart.googleapis.com/chart?' +
-            'chst=d_map_pin_letter&chld=O|FFFF00|000000';
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 55.53, lng: 9.4},
-          zoom: 10
-        });
-        var geocoder = new google.maps.Geocoder;
+//         var destinationIcon = 'https://chart.googleapis.com/chart?' +
+//             'chst=d_map_pin_letter&chld=D|FF0000|000000';
+//         var originIcon = 'https://chart.googleapis.com/chart?' +
+//             'chst=d_map_pin_letter&chld=O|FFFF00|000000';
+//         var map = new google.maps.Map(document.getElementById('map'), {
+//           center: {lat: 55.53, lng: 9.4},
+//           zoom: 10
+//         });
+//         var geocoder = new google.maps.Geocoder;
 
-        var service = new google.maps.DistanceMatrixService;
-        service.getDistanceMatrix({
-          origins: [origin1],
-          destinations: [destinationA],
-          travelMode: 'DRIVING',
-          unitSystem: google.maps.UnitSystem.IMPERIAL,
-          avoidHighways: false,
+//         var service = new google.maps.DistanceMatrixService;
+//         service.getDistanceMatrix({
+//           origins: [origin1],
+//           destinations: [destinationA],
+//           travelMode: 'DRIVING',
+//           unitSystem: google.maps.UnitSystem.IMPERIAL,
+//           avoidHighways: false,
 
-          avoidTolls: false
-        }, 
+//           avoidTolls: false
+//         }, 
 
-        function(response, status) {
-          console.log(initMap.response)
-          if (status !== 'OK') {
-            alert('Error was: ' + status);
-          } else {
-            var originList = response.originAddresses;
-            var destinationList = response.destinationAddresses;
-            var outputDiv = document.getElementById('output');
-            outputDiv.innerHTML = '';
-            deleteMarkers(markersArray);
+//         function(response, status) {
+//           console.log(initMap.response)
+//           if (status !== 'OK') {
+//             alert('Error was: ' + status);
+//           } else {
+//             var originList = response.originAddresses;
+//             var destinationList = response.destinationAddresses;
+//             var outputDiv = document.getElementById('output');
+//             outputDiv.innerHTML = '';
+//             deleteMarkers(markersArray);
 
-            var showGeocodedAddressOnMap = function(asDestination) {
-              var icon = asDestination ? destinationIcon : originIcon;
-              return function(results, status) {
-                if (status === 'OK') {
-                  map.fitBounds(bounds.extend(results[0].geometry.location));
-                  markersArray.push(new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location,
-                    icon: icon
-                  }));
-                } else {
-                  alert('Geocode was not successful due to: ' + status);
-                }
-              };
-            };
+//             var showGeocodedAddressOnMap = function(asDestination) {
+//               var icon = asDestination ? destinationIcon : originIcon;
+//               return function(results, status) {
+//                 if (status === 'OK') {
+//                   map.fitBounds(bounds.extend(results[0].geometry.location));
+//                   markersArray.push(new google.maps.Marker({
+//                     map: map,
+//                     position: results[0].geometry.location,
+//                     icon: icon
+//                   }));
+//                 } else {
+//                   alert('Geocode was not successful due to: ' + status);
+//                 }
+//               };
+//             };
 
-            for (var i = 0; i < originList.length; i++) {
-              var results = response.rows[i].elements;
+//             for (var i = 0; i < originList.length; i++) {
+//               var results = response.rows[i].elements;
               
-              geocoder.geocode({'address': originList[i]},
-                  showGeocodedAddressOnMap(false));
-              for (var j = 0; j < results.length; j++) {
-                geocoder.geocode({'address': destinationList[j]},
-                    showGeocodedAddressOnMap(true));
-                outputDiv.innerHTML += originList[i] + ' to ' + destinationList[j] +
-                    ': ' + results[j].distance.text + ' in ' +
-                    results[j].duration.text + '<br>';
+//               geocoder.geocode({'address': originList[i]},
+//                   showGeocodedAddressOnMap(false));
+//               for (var j = 0; j < results.length; j++) {
+//                 geocoder.geocode({'address': destinationList[j]},
+//                     showGeocodedAddressOnMap(true));
+//                 outputDiv.innerHTML += originList[i] + ' to ' + destinationList[j] +
+//                     ': ' + results[j].distance.text + ' in ' +
+//                     results[j].duration.text + '<br>';
 
-                 var element = results[j];
+//                  var element = results[j];
 
-                 // distance variable
-                 var distance = element.distance.text;
-                 console.log(distance)
+//                  // distance variable
+//                  var distance = element.distance.text;
+//                  console.log(distance)
 
-                 // Duration variable
-<<<<<<< HEAD
-                 var theDuration = element.duration.value;
-                 console.log(duration / 60 + "mins")
+//                  // Duration variable
+//                  var theDuration = element.duration.value;
+//                  console.log(duration / 60 + "mins");
 
-=======
-                 var duration = element.duration.value;
-                 console.log(duration / 60 + " mins")
+//                  var duration = element.duration.value;
+//                  console.log(duration / 60 + " mins");
         
->>>>>>> eaa1c73e9a0a8a2c4ffbae34f5ae487f111a8155
-              }
-            }
-          }
+//               }
+//             }
+//           }
 
 
-        });
-      }
+//         });
+//       }
 
-      function deleteMarkers(markersArray) {
-        for (var i = 0; i < markersArray.length; i++) {
-          markersArray[i].setMap(null);
-        }
-        markersArray = [];
-      };
+//       function deleteMarkers(markersArray) {
+//         for (var i = 0; i < markersArray.length; i++) {
+//           markersArray[i].setMap(null);
+//         }
+//         markersArray = [];
+//       };
 
-  
-<<<<<<< HEAD
-=======
 
-       console.log(initMap);
+
 // console.log(theDuration)
 
->>>>>>> eaa1c73e9a0a8a2c4ffbae34f5ae487f111a8155
 // function alertPossibleLateness() {
 //       if (parseInt(estimatedArrivalTimeUser) === parseInt("9:19")) {
 //       	onYouTubePlayerAPIReady();
@@ -407,12 +306,6 @@ function initMap() {
 // }
 // alertPossibleLateness()
 
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> eaa1c73e9a0a8a2c4ffbae34f5ae487f111a8155
 // SCRAPWORK------------------------******************************
 
 // // --------difference inbetween current time and alarm time

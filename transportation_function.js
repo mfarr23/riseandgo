@@ -9,9 +9,9 @@ var timeToGetReady = 0;
 // ie. 50 mins to get ready plus current Time: 8:00 = 8:50
 var transportationTimeGoogle = 0; // 8:00 AM from google API
 var totalTimeNeededBeforeDepartureTotalMinutes = 0;
-var timeYouWantToArrive = "10:30"; // 8:00 AM
-var timeYouWantToArriveHours = 10;
-var timeYouWantToArriveMinutes = 0;
+var timeYouWantToArrive = "11:30"; // 8:00 AM
+var timeYouWantToArriveHours = 11;
+var timeYouWantToArriveMinutes = 30;
 var timeYouWantToArriveTotalMinutes = 0;
 var alarmTotalMinutes = 0;
 var alarmHours = 0;
@@ -21,7 +21,7 @@ var alarm  = "";
 // Turning everything into total minutes
 var timeYouWantToArriveHoursInMinutes = timeYouWantToArriveHours * 60;
 var timeYouWantToArriveTotalMinutes = timeYouWantToArriveHoursInMinutes + timeYouWantToArriveMinutes;
-var transportationTimeGoogle = 20;
+var transportationTimeGoogle = 27;
 var timeToGetReadyMinutes = 20;
 
 // add latter two variables
@@ -88,21 +88,19 @@ var timeToGetReady = 0;
 // ie. 50 mins to get ready plus current Time: 8:00 = 8:50
 var transportationTimeGoogle = 0; // 8:00 AM from google API
 var totalTimeNeededBeforeDepartureTotalMinutes = 0;
-var timeYouWantToArrive = "10:30"; // 8:00 AM
-var timeYouWantToArriveHours = 10;
-var timeYouWantToArriveMinutes = 0;
+var timeYouWantToArrive = "11:30"; // 8:00 AM
+var timeYouWantToArriveHours = 11;
+var timeYouWantToArriveMinutes = 30;
 var timeYouWantToArriveTotalMinutes = 0;
 var alarmTotalMinutes = 0;
 var alarmHours = 0;
 var alarmMinutes = 0;
 var alarm  = "";
 
-
-
 // Turning everything into total minutes
 var timeYouWantToArriveHoursInMinutes = timeYouWantToArriveHours * 60;
 var timeYouWantToArriveTotalMinutes = timeYouWantToArriveHoursInMinutes + timeYouWantToArriveMinutes;
-var transportationTimeGoogle = 20;
+var transportationTimeGoogle = 27;
 var timeToGetReadyMinutes = 20;
 
 // add latter two variables

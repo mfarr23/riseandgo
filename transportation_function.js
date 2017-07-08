@@ -9,8 +9,8 @@ var timeToGetReady = 0;
 // ie. 50 mins to get ready plus current Time: 8:00 = 8:50
 var transportationTimeGoogle = 0; // 8:00 AM from google API
 var totalTimeNeededBeforeDepartureTotalMinutes = 0;
-var timeYouWantToArrive = "8:00"; // 8:00 AM
-var timeYouWantToArriveHours = 8;
+var timeYouWantToArrive = "10:30"; // 8:00 AM
+var timeYouWantToArriveHours = 10;
 var timeYouWantToArriveMinutes = 0;
 var timeYouWantToArriveTotalMinutes = 0;
 var alarmTotalMinutes = 0;
@@ -21,10 +21,10 @@ var alarm  = "";
 
 
 // Turning everything into total minutes
-var timeYouWantToArriveHoursInMinutes = 1 * 60;
+var timeYouWantToArriveHoursInMinutes = timeYouWantToArriveHours * 60;
 var timeYouWantToArriveTotalMinutes = timeYouWantToArriveHoursInMinutes + timeYouWantToArriveMinutes;
-var transportationTimeGoogle = 7;
-var timeToGetReadyMinutes = 13;
+var transportationTimeGoogle = 20;
+var timeToGetReadyMinutes = 20;
 
 // add latter two variables
 var totalTimeNeededBeforeDepartureTotalMinutes = transportationTimeGoogle + timeToGetReadyMinutes;
@@ -90,8 +90,8 @@ var timeToGetReady = 0;
 // ie. 50 mins to get ready plus current Time: 8:00 = 8:50
 var transportationTimeGoogle = 0; // 8:00 AM from google API
 var totalTimeNeededBeforeDepartureTotalMinutes = 0;
-var timeYouWantToArrive = "8:00"; // 8:00 AM
-var timeYouWantToArriveHours = 8;
+var timeYouWantToArrive = "10:30"; // 8:00 AM
+var timeYouWantToArriveHours = 10;
 var timeYouWantToArriveMinutes = 0;
 var timeYouWantToArriveTotalMinutes = 0;
 var alarmTotalMinutes = 0;
@@ -99,11 +99,13 @@ var alarmHours = 0;
 var alarmMinutes = 0;
 var alarm  = "";
 
+
+
 // Turning everything into total minutes
-var timeYouWantToArriveHoursInMinutes = 1 * 60;
+var timeYouWantToArriveHoursInMinutes = timeYouWantToArriveHours * 60;
 var timeYouWantToArriveTotalMinutes = timeYouWantToArriveHoursInMinutes + timeYouWantToArriveMinutes;
-var transportationTimeGoogle = 7;
-var timeToGetReadyMinutes = 13;
+var transportationTimeGoogle = 20;
+var timeToGetReadyMinutes = 20;
 
 // add latter two variables
 var totalTimeNeededBeforeDepartureTotalMinutes = transportationTimeGoogle + timeToGetReadyMinutes;

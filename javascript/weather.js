@@ -42,9 +42,6 @@ $(document).ready(function(){
    getWeatherData();
  });
 
- // var address = "San Francisco, CA 94129";
- console.log(location);
-
  function parseAddress(address) {
 
     address = address.trim();
@@ -72,10 +69,6 @@ $(document).ready(function(){
     $("#forecast_title").html('10 Day Forecast for ' + location);
 
 	$.getJSON(url, function(response) {
-  		//  $(".city").html("<h1>" + response.query.results.channel.location.city + " Weather Details</h1>");
-    //     $(".wind").html("Wind Speed: " + response.query.results.channel.wind.speed);
-    //     $(".humidity").html("Humidity: " + response.query.results.channel.atmosphere.humidity);
-    //     $(".temp").html("Temperature (F) " + response.query.results.channel.item.condition.temp);
 
         var forecast = response.query.results.channel.item.forecast;
         
@@ -89,10 +82,6 @@ $(document).ready(function(){
           var condition = forecast[i].text;
           var code = forecast[i].code;
           var card = "";
-
-          console.log(weatherIconMapping[code]);
-          console.log(code);
-          console.log(response);
 
           if (i==0){
             card = '<div class="row" style="float: left; background-color: #0d47a1;">' +

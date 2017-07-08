@@ -14,14 +14,14 @@ var estimatedArrivalTimeUser = "";
 var estimatedArrivalTimeUserHour = 0;
 var estimatedArrivalTimeUserMinutes = 0;
 var estimatedArrivalTimeGoogle = ""; // 8:00 AM from google API
-<<<<<<< HEAD
+
 
 var timeYouWantToArrive = "8:00"; // 8:00 AM
 // var alarm  = "05/07/2017 08:00";
 
-=======
+
 var timeYouWantToArrive = "8:00"; 
->>>>>>> 4880e0d5fcb55ef9d66ba34b43dd773b8f850b00
+
 
 $('#timeYouWantToArrive').html(timeYouWantToArrive);
 
@@ -142,7 +142,7 @@ function update() {
 // NEED A IF THEN STATEMENT
 // IF TOTAL COMMUTE TIME IS LESS THAN 30 MINS THEN SOUND ALARM AT 7AM
 // IF MORE THAN 30 MINS THEN SOUND ALARM AT 7AM MINUS EXTRA TIME NEEDED
-<<<<<<< HEAD
+
 function alertPossibleLateness() {
 	if ((estimatedArrivalTimeGoogle) === estimatedArrivalTimeUser) {
 		alert("You must leave now")
@@ -234,7 +234,7 @@ function initMap() {
 
                  // Duration variable
                  var duration = element.duration.value;
-                 console.log(duration / 60 + "mins")
+                 console.log(duration / 60 + " mins")
         
               }
             }
@@ -255,7 +255,7 @@ function initMap() {
 
        console.log(initMap);
 // console.log(theDuration)
-=======
+
 // function alertPossibleLateness() {
 //       if (parseInt(estimatedArrivalTimeUser) === parseInt("9:19")) {
 //       	onYouTubePlayerAPIReady();
@@ -268,7 +268,7 @@ function initMap() {
 
 
 
->>>>>>> 4880e0d5fcb55ef9d66ba34b43dd773b8f850b00
+
 // SCRAPWORK------------------------******************************
 
 // // --------difference inbetween current time and alarm time

@@ -60,15 +60,15 @@ function submitdata(event) {
       currentuser = user;
     });
 
-    database.ref().push({
+    database.ref('users/').push({
+      email: localemail,
       workAddress:workAddress,
       HomeAddress:HomeAddress,
       MorningRoutine:MorningRoutine,
       arriveWork: arriveWork,
       youtube:youtube,
-      dataAdded: firebase.database.ServerValue.TIMESTAMP,
-      email: localemail
-    });
+      dataAdded: firebase.database.ServerValue.TIMESTAMP
+     });
 };
 
 //************OnClick******************************

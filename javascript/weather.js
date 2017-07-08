@@ -28,7 +28,7 @@ $(document).ready(function(){
           var card = ""
 
           if (i==0){
-            card = '<div class="row" style="float: left; background-color: black;">' +
+            card = '<div class="row" style="float: left; background-color: #0d47a1;">' +
             '<div class="col s1 m1">' +
               '<div class="card blue-grey darken-1">' +
                 '<div class="card-content white-text">' +

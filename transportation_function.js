@@ -19,9 +19,9 @@ var alarmMinutes = 0;
 var alarm  = "";
 
 // Turning everything into total minutes
-var timeYouWantToArriveHoursInMinutes = 24 * 60;
+var timeYouWantToArriveHoursInMinutes = 1 * 60;
 var timeYouWantToArriveTotalMinutes = timeYouWantToArriveHoursInMinutes + timeYouWantToArriveMinutes;
-var transportationTimeGoogle = 15;
+var transportationTimeGoogle = 7;
 var timeToGetReadyMinutes = 13;
 
 // add latter two variables
@@ -58,12 +58,9 @@ refreshAt(alarmHours,alarmMinutes,0);
 
 // -----------------CONTINUOUS CLOCK UPDATE
 
-// function update() {
-//     date = moment(new Date())
-// 	currentTime.html(date.format('HH:mm:ss'));
-// 	currentTimeHours.html(date.format('HH'));
-//     currentTimeMinutes.html(date.format('mm'));
-//     // currentTimeDate.html(date.format("DD/MM/YYYY HH:mm"));
+function update() {
+    date = moment(new Date())
+    currentTimeDate.html(date.format("DD/MM/YYYY HH:mm:ss"));
 
 // // converts current time and total time needed before departure into only minutes 1:10 = 70 mins
 // 	var currentTimeConvertedMinutes = ((parseInt(currentTimeHours[0].innerHTML)) * 60) + (parseInt(currentTimeMinutes[0].innerHTML));
@@ -76,20 +73,15 @@ refreshAt(alarmHours,alarmMinutes,0);
 // // finds minutes
 // 	var estimatedArrivalTimeUserMinutes = (currentTimeConvertedMinutes + totalTimeNeededBeforeDepartureConvertedMinutes) % 60;
 // 	console.log(estimatedArrivalTimeUserMinutes);
-
-// // combines minutes and hours
-// 	var estimatedArrivalTimeUser = (estimatedArrivalTimeUserHour + ":" + estimatedArrivalTimeUserMinutes);
-//     $('#estimatedArrivalTimeUser').html(estimatedArrivalTimeUser);
-// };
-
-// // sets times equal to divs and updates every second
-//     currentTime = $('#currentTime')
-//     currentTimeHours = $('#currentTimeHours')
-//     currentTimeMinutes = $('#currentTimeMinutes')
-//     update();
-//     setInterval(update, 1000);
+// }
+}
+// sets times equal to divs and updates every second
+    currentTimeDate = $('#runningClock');
+    update();
+    setInterval(update, 1000);
 
 });
+
 // END DOCUMENT.READY
 var timeToGetReady = 0;
 // Gives you the ETA by adding the total commute time and the time to get ready with the current time
@@ -106,9 +98,9 @@ var alarmMinutes = 0;
 var alarm  = "";
 
 // Turning everything into total minutes
-var timeYouWantToArriveHoursInMinutes = 24 * 60;
+var timeYouWantToArriveHoursInMinutes = 1 * 60;
 var timeYouWantToArriveTotalMinutes = timeYouWantToArriveHoursInMinutes + timeYouWantToArriveMinutes;
-var transportationTimeGoogle = 15;
+var transportationTimeGoogle = 7;
 var timeToGetReadyMinutes = 13;
 
 // add latter two variables

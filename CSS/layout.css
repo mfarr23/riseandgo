@@ -1,3 +1,6 @@
 body {
 	background: #75ccb9;
 }
+#weather_condition{
+	font-size: 10px;
+}

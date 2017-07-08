@@ -23,7 +23,7 @@ $(document).ready(function(){
     "30":"wi-day-cloudy-high",
     "31":"wi-night-clear",
     "32":"wi-day-sunny",
-    "34":"wi-cloud",
+    "34":"wi-day-sunny-overcast",
     "37":"wi-thunderstorm",
     "38":"wi-day-storm-showers",
     "39":"wi-day-storm-showers",
@@ -84,13 +84,15 @@ $(document).ready(function(){
         for(var i = 0; i<forecast.length; i++){
 
           var date = moment(new Date(forecast[i].date)).format('M/DD');
-          var high = forecast[i].high
-          var low = forecast[i].low
+          var high = forecast[i].high;
+          var low = forecast[i].low;
+          var condition = forecast[i].text;
           var code = forecast[i].code;
-          var card = ""
+          var card = "";
 
           console.log(weatherIconMapping[code]);
           console.log(code);
+          console.log(response);
 
           if (i==0){
             card = '<div class="row" style="float: left; background-color: black;">' +
@@ -100,6 +102,7 @@ $(document).ready(function(){
                   '<span class="card-title">' + date + '</span>' +
                   '<p>H:' + high + '°</p><p>L:' + low + '°</p>' + 
                   '<i class="wi ' + weatherIconMapping[code] + '"></i>' +
+                  '<p id="weather_condition">' + condition + '</p>' +
                 '</div>' +
               '</div>' +
             '</div>' +
@@ -112,6 +115,7 @@ $(document).ready(function(){
                   '<span class="card-title">' + date + '</span>' +
                   '<p>H:' + high + '°</p><p>L:' + low + '°</p>' + 
                   '<i class="wi ' + weatherIconMapping[code] + '"></i>' +
+                  '<p id="weather_condition">' + condition + '</p>' +
                 '</div>' +
               '</div>' +
             '</div>' +

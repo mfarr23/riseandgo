@@ -2,9 +2,9 @@ function initMap() {
         var bounds = new google.maps.LatLngBounds;
         var markersArray = [];
 
-        var origin1 = "Philadelphia";
+        var origin1 = "1706 Random Stone Ct, VA";
         var origin2 = '';
-        var destinationA = "New York";
+        var destinationA = "1919 N Lynn Str, VA";
         var destinationB = {lat: 50.087, lng: 14.421};
 
         var destinationIcon = 'https://chart.googleapis.com/chart?' +

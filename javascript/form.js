@@ -1,29 +1,6 @@
 
 $(document).ready(function() {
 
-  // Initialize Firebase
-  // var config = {
-  //   apiKey: "AIzaSyCdWA6RwVW98EYpbDwU8SSOMHRTUfdy6UM",
-  //   authDomain: "riseandgo-9572a.firebaseapp.com",
-  //   databaseURL: "https://riseandgo-9572a.firebaseio.com",
-  //   projectId: "riseandgo-9572a",
-  //   storageBucket: "riseandgo-9572a.appspot.com",
-  //   messagingSenderId: "431744264850"
-  // };
-  // firebase.initializeApp(config);
-
-   // Initialize Firebase
-  // var config = {
-  //   apiKey: "AIzaSyDYKeCU0qznswPXCkVL0pWZTI8Xa2UH4JQ",
-  //   authDomain: "riseandgo-b833c.firebaseapp.com",
-  //   databaseURL: "https://riseandgo-b833c.firebaseio.com",
-  //   projectId: "riseandgo-b833c",
-  //   storageBucket: "riseandgo-b833c.appspot.com",
-  //   messagingSenderId: "934689669156"
-  // };
-  // firebase.initializeApp(config);
-
-
 // *************VARIABLES************************
   var database = firebase.database();
   var workAddress = "";
@@ -33,15 +10,11 @@ $(document).ready(function() {
   var youtube = "";
   var localemail = localStorage.getItem("email");
 
-  console.log(localemail);
-
 //***************** Functions*****************************
 
 function submitdata(event) {
 
     event.preventDefault();
-
-    console.log("clicking");
 
     workAddress = $("#workAddress").val().trim();
     HomeAddress = $("#HomeAddress").val().trim();
@@ -49,30 +22,29 @@ function submitdata(event) {
     arriveWork = $("#timepicker").val();
     youtube = $("#youtube").val();
 
-    console.log(workAddress);
-    console.log(HomeAddress);
-    console.log(MorningRoutine);
-    console.log(arriveWork);
-    console.log(youtube);
-
     var currentuser = '';
     firebase.auth().onAuthStateChanged(function(user) {
       currentuser = user;
     });
 
-    database.ref().push({
+    database.ref('users/').push({
+      email: localemail,
       workAddress:workAddress,
       HomeAddress:HomeAddress,
       MorningRoutine:MorningRoutine,
       arriveWork: arriveWork,
       youtube:youtube,
-      dataAdded: firebase.database.ServerValue.TIMESTAMP,
-      email: localemail
-    });
-};
+      dataAdded: firebase.database.ServerValue.TIMESTAMP
+     });
 
-//************OnClick******************************
-   console.log("the page loaded");
+    alert("Submitted successfully!")
+
+    $("#workAddress").val('');
+    $("#HomeAddress").val('');
+    $("#MorningRoutine").val('');
+    $("#timepicker").val('');
+    $("#youtube").val('');
+};
 
    // onclick of  buttons
 $(document).on("click", "#submit", submitdata);

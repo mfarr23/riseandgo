@@ -5,12 +5,10 @@
 
 	<title>Transporation Function Test</title>
 
-
 	<script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   crossorigin="anonymous"></script>
-
 </head>
 <body>
 
@@ -29,24 +27,6 @@
 <div id="timeYouWantToArriveDiv">Time You Want to Arrive: <span id="timeYouWantToArrive"></span></div>
 <div id="estimatedArrivalTimeUserDiv">Estimated Arrival Time (currrent time + total time needed before leaving) : <span id="estimatedArrivalTimeUser"></span></div>
 <div id="estimatedArrivalTimeGoogleDiv">Estimated Arrival Time From Google: <span id="estimatedArrivalTimeGoogle">If above time is higher than google time, set an alert that says your late</span></div>
-
-
-<!-- Google APi stuff -->
-
- <div id="right-panel">
-      <div id="inputs">
-        <pre>
-var origin1 = {lat: 55.930, lng: -3.118};
-var origin2 = 'Greenwich, England';
-
-        </pre>
-      </div>
-      <div>
-        <strong>Results</strong>
-      </div>
-      <div id="output"></div>
-    </div>
-    <div id="map"></div>
 
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJlW6FTYGOdrbT49WeKOUvQYv_o-Q9VuU&callback=initMap">

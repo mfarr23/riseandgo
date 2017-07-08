@@ -10,6 +10,8 @@ var timeToGetReady = 0;
 var transportationTimeGoogle = 0; // 8:00 AM from google API
 var totalTimeNeededBeforeDepartureTotalMinutes = 0;
 var timeYouWantToArrive = "8:00"; // 8:00 AM
+var timeYouWantToArriveHours = 8;
+var timeYouWantToArriveMinutes = 0;
 var timeYouWantToArriveTotalMinutes = 0;
 var alarmTotalMinutes = 0;
 var alarmHours = 0;
@@ -17,7 +19,8 @@ var alarmMinutes = 0;
 var alarm  = "";
 
 // Turning everything into total minutes
-var timeYouWantToArriveTotalMinutes = 24 * 60;
+var timeYouWantToArriveHoursInMinutes = 24 * 60;
+var timeYouWantToArriveTotalMinutes = timeYouWantToArriveHoursInMinutes + timeYouWantToArriveMinutes;
 var transportationTimeGoogle = 15;
 var timeToGetReadyMinutes = 13;
 
@@ -94,6 +97,8 @@ var timeToGetReady = 0;
 var transportationTimeGoogle = 0; // 8:00 AM from google API
 var totalTimeNeededBeforeDepartureTotalMinutes = 0;
 var timeYouWantToArrive = "8:00"; // 8:00 AM
+var timeYouWantToArriveHours = 8;
+var timeYouWantToArriveMinutes = 0;
 var timeYouWantToArriveTotalMinutes = 0;
 var alarmTotalMinutes = 0;
 var alarmHours = 0;
@@ -101,7 +106,8 @@ var alarmMinutes = 0;
 var alarm  = "";
 
 // Turning everything into total minutes
-var timeYouWantToArriveTotalMinutes = 24 * 60;
+var timeYouWantToArriveHoursInMinutes = 24 * 60;
+var timeYouWantToArriveTotalMinutes = timeYouWantToArriveHoursInMinutes + timeYouWantToArriveMinutes;
 var transportationTimeGoogle = 15;
 var timeToGetReadyMinutes = 13;
 
@@ -117,7 +123,6 @@ var alarmMinutes = alarmTotalMinutes % 60;
 console.log(alarmHours);
 console.log(alarmMinutes);
 console.log(alarmTotalMinutes);
-// console.log()
 // FOR SOME REASON THE YOUTUBE ONLY LOADS WHEN OUTSIDE OF DOCUMENT.READY below:
 // $( "body" ).load(function() {
   // Run code

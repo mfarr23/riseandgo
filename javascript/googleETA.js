@@ -62,9 +62,10 @@ function initMap() {
               for (var j = 0; j < results.length; j++) {
                 geocoder.geocode({'address': destinationList[j]},
                     showGeocodedAddressOnMap(true));
-                outputDiv.innerHTML += originList[i] + ' to ' + destinationList[j] +
-                    ': ' + results[j].distance.text + ' in ' +
+               outputDiv.innerHTML += 'ETA : ' +
                     results[j].duration.text + '<br>';
+               
+
 
                  var element = results[j];
 
@@ -74,7 +75,7 @@ function initMap() {
 
                  // Duration variable
                  var duration = element.duration.value;
-                 console.log(duration /60)
+                 console.log(duration / 60 + "mins")
         
               }
             }
@@ -90,4 +91,3 @@ function initMap() {
         }
         markersArray = [];
       }
-    

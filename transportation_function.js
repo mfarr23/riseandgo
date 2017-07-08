@@ -18,8 +18,6 @@ var alarmHours = 0;
 var alarmMinutes = 0;
 var alarm  = "";
 
-
-
 // Turning everything into total minutes
 var timeYouWantToArriveHoursInMinutes = timeYouWantToArriveHours * 60;
 var timeYouWantToArriveTotalMinutes = timeYouWantToArriveHoursInMinutes + timeYouWantToArriveMinutes;

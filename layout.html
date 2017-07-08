@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Rise and Go</title>
+  <title>Rise and Go</title>
 
-	<!--Import Google Icon Font-->
+  <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-	<!-- Compiled and minified CSS -->
-  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+  <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
 
     <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -37,26 +37,29 @@
 
 <!-- Quick Information. CONTAINER DIV MAKES THE CONTENT FILL ~70% WIDTH OF SCREEN  -->
 <div class="container">
-	<div class="row">
-	      <div class="col s1">Weather Icon</div>
-	      <div class="col s2">Temperature</div>
-	      <div class="col s6" id="runningClock">HH:MM:SS:AM</div>
-	      <div class="col s3">Commute Time</div>
-	</div>
+  <div class="row">
+        <div class="col s1">Weather Icon</div>
+        <div class="col s2">Temperature</div>
+        <div class="col s6" id="runningClock" style="text-align: center; font-size: 35px;">HH:MM:SS:AM</div>
+        <div class="col s3" id="output" style="text-align: center; font-size: 20px">Commute Time</div>
+
+        <div id="map"></div>
+
+  </div>
 </div>
 
 <!-- Quote Area -->
-<div class="slider">
-    <ul class="slides">
-      <li>
-        <img src="photos/reflectingPool.jpg"> 
-        <div class="caption center-align" style="color: #0d47a1">
-          <h3>This is our big Tagline!</h3>
-          <h5 class="light grey-text text-lighten-3" style="color: #0d47a1 !important">Here's our small slogan.</h5>
-        </div>
-      </li>
-    </ul>
-  </div>
+<!-- <div class="slider"> -->
+    <!-- <ul class="slides"> -->
+      <!-- <li> -->
+        <!-- <img src="photos/reflectingPool.jpg">  -->
+        <!-- <div class="caption center-align" style="color: #0d47a1"> -->
+          <!-- <h3>You miss 100% of the shots you don't take!</h3> -->
+          <!-- <h5 class="light grey-text text-lighten-3" style="color: #0d47a1 !important">Here's our small slogan.</h5> -->
+        <!-- </div> -->
+      <!-- </li> -->
+    <!-- </ul> -->
+  <!-- </div> -->
 
 <!-- WEATHER -->
 <div class="container">
@@ -75,20 +78,19 @@
   </div>
 </div>
 
-
-
+  
     <!-- Jquery -->
      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-  	<!-- Compiled and minified JavaScript -->
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 
 <!-- makes the pictures appear -->
-  	<script>
-   		$(document).ready(function () {
-       		$('.slider').slider({full_width: true});
-   		});
-	</script>
+    <script>
+      $(document).ready(function () {
+          $('.slider').slider({full_width: true});
+      });
+  </script>
 
 <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
@@ -98,7 +100,11 @@
 <script src="javascript/weather.js"></script>
 <script type="text/javascript" src="transportation_function.js"></script>
 
-<!-- <script src="javascript/googleETA.js"></script>
- -->
+<script src="googleEta.js"></script>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJlW6FTYGOdrbT49WeKOUvQYv_o-Q9VuU&callback=initMap">
+    </script>
+
 </body>
 </html>
